@@ -113,7 +113,7 @@ DOWNLOAD_LINK=https://sourceforge.net/projects/aim-rom-ten/files/${device}/${AIM
 cd ../../../../
 
 #generate ota json
-jq -n --arg id $id --arg filename $filename --arg url $url --arg datetime $datetime --arg size $size --arg version $version '{ "datetime": $datetime, "filename": $filename, "id": $id, "size": $size, "url": $url, "version": $version,}' > ${device}.json
+jq -n --arg id $id --arg filename $filename --arg url $url --arg datetime $datetime --arg size $size --arg version $version '{"response":[{ "datetime": $datetime, "filename": $filename, "id": $id, "size": $size, "url": $url, "version": $version,}]}' > ${device}.json
 
 telegram-send "Build uploaded"
 
