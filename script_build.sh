@@ -9,19 +9,9 @@ device_codename=
 OUT_PATH="out/target/product/$device_codename"
 ROM_ZIP=Rom*.zip
 
-# Colors makes things beautiful
-export TERM=xterm
-
-    red=$(tput setaf 1)             #  red
-    grn=$(tput setaf 2)             #  green
-    blu=$(tput setaf 4)             #  blue
-    cya=$(tput setaf 6)             #  cyan
-    txtrst=$(tput sgr0)             #  Reset
-
 # Ccache
 if [ "$use_ccache" = "yes" ];
 then
-echo -e ${blu}"CCACHE is enabled for this build"${txtrst}
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
 export CCACHE_DIR=/home/$user/ccache
@@ -36,7 +26,6 @@ ccache -C
 export USE_CCACHE=1
 ccache -M 50G
 wait
-echo -e ${grn}"CCACHE Cleared"${txtrst};
 fi
 
 rm -rf ${OUT_PATH}/${ROM_ZIP} #clean rom zip in any case
@@ -48,14 +37,12 @@ if [ "$make_clean" = "yes" ];
 then
 make clean
 wait
-echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
 fi
 
 if [ "$make_clean" = "installclean" ];
 then
 make installclean
 wait
-echo -e ${cya}"Images deleted from OUT dir"${txtrst};
 fi
 lunch lineage_"$device_codename"-userdebug
 make bacon -j16
