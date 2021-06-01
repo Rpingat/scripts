@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+user=
+
 # Export ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
 export CCACHE_COMPRESS=1
-export CCACHE_DIR=/path/to/ccache
+export CCACHE_DIR=/home/$user/ccache
 ccache -M 75G
 
 #Clear ccache
@@ -16,13 +18,11 @@ ccache -M 75G
 #ccache -M 75G
 
 #Export User and host variables
-export KBUILD_BUILD_USER=AiM
-export KBUILD_BUILD_HOST=Jenkins
+export KBUILD_BUILD_USER=$user
+export KBUILD_BUILD_HOST=ThunderServer
 
-# clean
-make clean && make clobber
-
-#Time to build
+#Time to 
 source build/envsetup.sh
-lunch aim_beryllium-userdebug
-make bacon -j8
+make clean
+lunch lineage_device-userdebug
+make bacon -j16
