@@ -50,7 +50,7 @@ make bacon -j16
 if [ `ls $OUT_PATH/$ROM_ZIP 2>/dev/null | wc -l` != "0" ]; then
 cd $OUT_PATH
 RZIP="$(ls ${ROM_ZIP})"
-cp ${RZIP} /home/ravi/$user
+cp ${RZIP} /home/ravi/builds/${user}
 else
 telegram-send "Build Failed"
 fi
