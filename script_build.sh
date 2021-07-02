@@ -47,7 +47,7 @@ make installclean
 wait
 fi
 lunch "$lunch"_"$device_codename"-"$build_type"
-make bacon -j16
+make bacon -j24
 
 if [ `ls $OUT_PATH/$ROM_ZIP 2>/dev/null | wc -l` != "0" ]; then
 cd $OUT_PATH
