@@ -54,5 +54,5 @@ cd $OUT_PATH
 RZIP="$(ls ${ROM_ZIP})"
 cp ${RZIP} /home/ravi/builds/${user}
 else
-telegram-send "Build Failed"
+exit 1
 fi
