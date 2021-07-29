@@ -68,7 +68,7 @@ if [ `ls $OUT_PATH/$ROM_ZIP 2>/dev/null | wc -l` != "0" ]; then
 cd $OUT_PATH
 RZIP="$(ls ${ROM_ZIP})"
 cp ${RZIP} /home/ravi/builds/${user}
-link="https://mirror.thunderserver.in/$user/$RZIP"
+link="https://mirror1.thunderserver.in/$user/$RZIP"
 read -r -d '' suc <<EOT
 <b>Build Finished</b>
 
