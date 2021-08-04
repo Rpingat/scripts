@@ -67,8 +67,8 @@ TIME=$(echo $((${END}-${START})) | awk '{print int($1/60)" Minutes and "int($1%6
 if [ `ls $OUT_PATH/$ROM_ZIP 2>/dev/null | wc -l` != "0" ]; then
 cd $OUT_PATH
 RZIP="$(ls ${ROM_ZIP})"
-cp ${RZIP} /home/ravi/builds/${user}
-link="https://mirror1.thunderserver.in/$user/$RZIP"
+cp ${RZIP} /var/www/html/${user}
+link="http://ssh1.thunderserver.in/$user/$RZIP"
 read -r -d '' suc <<EOT
 <b>Build Finished</b>
 
